@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="login">
+        <div class="login-screen">
+            <div class="login-icon">
+                <img src="images/logo.png" alt="{{ 'WELCOME_TO' | translate }} {{ name }}">
+                <h4>{{ 'WELCOME_TO' | translate }}<small>{{ name }}</small></h4>
+            </div>
+
+            <div class="login-form">
+                <div class="control-group">
+                    <input type="text" class="login-field" value="" placeholder="{{ 'ENTER_YOUR_EMAIL' | translate }}" id="login-name">
+                    <label class="login-field-icon fui-user" for="login-name"></label>
+                </div>
+
+                <div class="control-group">
+                    <input type="password" class="login-field" value="" placeholder="{{ 'ENTER_YOUR_PASS' | translate }}" id="login-pass">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                </div>
+
+                <a class="btn btn-primary btn-large btn-block" href="#">{{ 'LOGIN' | translate }}</a>
+                <a class="login-link" href="#">{{ 'LOST_PASSWORD' | translate }}</a>
+            </div>
+        </div>
+    </div>
+</div>
