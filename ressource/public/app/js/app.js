@@ -33,8 +33,7 @@ angular.
         };
     }).
     run(function ($rootScope, $location, $user) {
-        $rootScope.$on('$routeChangeStart', function(event, currRoute, prevRoute) {
-            console.log(arguments);
+        $rootScope.$on('$routeChangeStart', function(event, currRoute) {
             if (!currRoute.access.isFree && !$user.isLogged) {
                 $location.path("/");
             }
@@ -43,6 +42,13 @@ angular.
     config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/', {
+                templateUrl: 'app/partials/login.html',
+                controller: "LoginCtrl",
+                access: {
+                    isFree: true
+                }
+            }).
+            when('/login/:provider', {
                 templateUrl: 'app/partials/login.html',
                 controller: "LoginCtrl",
                 access: {

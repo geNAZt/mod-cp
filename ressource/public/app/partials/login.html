@@ -9,7 +9,7 @@
             <div class="login-form">
                 <div class="btn-toolbar">
                     <div class="btn-group">
-                        <a ng-repeat="provider in providers" class="btn btn-primary" href="#/login/{{ provider }}"><img src="images/login_provider/{{ provider }}.png" title="{{ 'LOGIN_PROVIDER_' + provider | translate }}" /></a>
+                        <a ng-repeat="provider in providers" class="btn btn-primary {{selectedProvider==provider && 'active' || ''}}" href="#/login/{{ provider }}"><img src="images/login_provider/{{ provider }}.png" title="{{ 'LOGIN_PROVIDER_' + provider | translate }}" /></a>
                     </div>
                 </div>
 
