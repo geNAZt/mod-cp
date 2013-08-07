@@ -23,4 +23,6 @@ module.exports = function(c$logger, p$config) {
 
     //Put all started servers into the Injector
     ModuleInjector.use("servers", servers);
+
+    hookManager.execute("httpServerStart");
 }

@@ -5,6 +5,10 @@
         ]
     },
 
+    "socket.io": {
+        "enabled": true
+    },
+
     "modulePath": "modules/",
 
     "cluster": {

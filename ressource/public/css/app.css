@@ -5,3 +5,8 @@ body {
 .login-icon {
     text-align: center;
 }
+
+.btn-primary img {
+    max-width: 32px;
+    max-height: 32px;
+}

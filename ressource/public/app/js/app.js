@@ -1,5 +1,3 @@
-
-
 angular.
     module('modcp', ['pascalprecht.translate']).
     factory('$user', [function() {
@@ -10,11 +8,53 @@ angular.
 
         return sdo;
     }]).
+    factory('$socket', function ($rootScope) {
+        var socket = io.connect();
+
+        return {
+            on: function (eventName, callback) {
+                socket.on(eventName, function () {
+                    var args = arguments;
+                    $rootScope.$apply(function () {
+                        callback.apply(socket, args);
+                    });
+                });
+            },
+            emit: function (eventName, data, callback) {
+                socket.emit(eventName, data, function () {
+                    var args = arguments;
+                    $rootScope.$apply(function () {
+                        if (callback) {
+                            callback.apply(socket, args);
+                        }
+                    });
+                })
+            }
+        };
+    }).
+    run(function ($rootScope, $location, $user) {
+        $rootScope.$on('$routeChangeStart', function(event, currRoute, prevRoute) {
+            console.log(arguments);
+            if (!currRoute.access.isFree && !$user.isLogged) {
+                $location.path("/");
+            }
+        });
+    }).
     config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/', {
                 templateUrl: 'app/partials/login.html',
-                controller: LoginCtrl
+                controller: "LoginCtrl",
+                access: {
+                    isFree: true
+                }
+            }).
+            when('/dashboard', {
+                templateUrl: 'app/partials/dashboard.html',
+                controller: "DashboardCtrl",
+                access: {
+                    isFree: false
+                }
             }).
             otherwise({
                 redirectTo: '/'
