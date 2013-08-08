@@ -2,7 +2,7 @@ var io = require('socket.io');
 var SocketIOLogger = require('../../../lib/logger/socket-bridge');
 var hookManager = require('../../../lib/HookManager');
 
-module.exports = function(http$servers, c$logger, p$config) {
+module.exports = function(http$servers, c$logger, p$config, cb) {
     "use strict";
 
     //Start Socket.IO if enabled
@@ -19,8 +19,10 @@ module.exports = function(http$servers, c$logger, p$config) {
             });
 
             listen.sockets.on('connection', function (socket) {
-                hookManager.execute("onNewSocketConnection", [socket]);
+                hookManager.execute("onNewSocketConnection", [socket], function() {});
             });
         });
     }
+
+    cb();
 }

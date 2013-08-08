@@ -20,7 +20,9 @@
     "socket.io"                 :   "0.9.x",
     "require-all"               :   "0.0.6",
     "swig"                      :   "0.14.0",
-    "consolidate"               :   "0.9.1"
+    "consolidate"               :   "0.9.1",
+    "jugglingdb"                :   "0.2.x",
+    "jugglingdb-mysql"          :   "git://github.com/jugglingdb/mysql-adapter.git"
   },
   "engines": {
     "node": ">=0.8"

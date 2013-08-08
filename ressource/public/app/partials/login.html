@@ -7,6 +7,9 @@
             </div>
 
             <div class="login-form">
+                <span ng-show="form.uEmail.$error.required">Tell us your email.</span>
+                <span ng-show="form.uEmail.$error.email">This is not a valid email.</span>
+
                 <div class="btn-toolbar">
                     <div class="btn-group">
                         <a ng-repeat="provider in providers" class="btn btn-primary {{selectedProvider==provider && 'active' || ''}}" href="#/login/{{ provider }}"><img src="images/login_provider/{{ provider }}.png" title="{{ 'LOGIN_PROVIDER_' + provider | translate }}" /></a>
@@ -14,17 +17,17 @@
                 </div>
 
                 <div class="control-group">
-                    <input type="text" class="login-field" value="" placeholder="{{ 'ENTER_YOUR_EMAIL' | translate }}" id="login-name">
+                    <input type="text" class="login-field {{user.error && 'error' || '' }}" placeholder="{{ 'ENTER_YOUR_EMAIL' | translate }}" ng-model="user.email" id="login-name">
                     <label class="login-field-icon fui-user" for="login-name"></label>
                 </div>
 
                 <div class="control-group">
-                    <input type="password" class="login-field" value="" placeholder="{{ 'ENTER_YOUR_PASS' | translate }}" id="login-pass">
+                    <input type="password" class="login-field" placeholder="{{ 'ENTER_YOUR_PASS' | translate }}" ng-model="user.password" id="login-pass">
                     <label class="login-field-icon fui-lock" for="login-pass"></label>
                 </div>
 
-                <a class="btn btn-primary btn-large btn-block" href="#">{{ 'LOGIN' | translate }}</a>
-                <a class="login-link" href="#">{{ 'LOST_PASSWORD' | translate }}</a>
+                <button class="btn btn-primary btn-large btn-block" ng-click="login(user)">{{ 'LOGIN' | translate }}</button>
+                <a class="login-link" href="#/lostpass">{{ 'LOST_PASSWORD' | translate }}</a>
             </div>
         </div>
     </div>

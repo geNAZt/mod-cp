@@ -4,5 +4,6 @@
     "ENTER_YOUR_PASS": "Bitte gib dein Passwort ein",
     "LOGIN": "Einloggen",
     "LOST_PASSWORD": "Passwort vergessen ?",
-    "LOGIN_PROVIDER_minecraft": "Mit Minecraft Daten einloggen"
+    "LOGIN_PROVIDER_minecraft": "Mit Minecraft Daten einloggen",
+    "LOGIN_PROVIDER_intern": "Mit ModCP Daten einloggen"
 }

@@ -34,7 +34,7 @@ angular.
     }).
     run(function ($rootScope, $location, $user) {
         $rootScope.$on('$routeChangeStart', function(event, currRoute) {
-            if (!currRoute.access.isFree && !$user.isLogged) {
+            if (typeof currRoute.access != "undefined" && !currRoute.access.isFree && !$user.isLogged) {
                 $location.path("/");
             }
         });

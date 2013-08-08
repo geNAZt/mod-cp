@@ -5,10 +5,10 @@
  * Time: 22:42
  * To change this template use File | Settings | File Templates.
  */
-module.exports = function (p$config) {
+module.exports = function (p$config, cb) {
     if (typeof p$config.network != "object") {
-        return new Error("http:network not configured");
+        return cb(new Error("http:network not configured"));
     }
 
-    return undefined;
+    cb();
 };

@@ -6,7 +6,7 @@ var express = require('express'),
     cons = require('consolidate'),
     swig = require('swig');
 
-module.exports = function(http$app) {
+module.exports = function(http$app, cb) {
     var publicPath = path.join(process.cwd(), 'ressource/public');
     var viewPath = path.join(process.cwd(), 'ressource/view')
 
@@ -22,4 +22,5 @@ module.exports = function(http$app) {
     });
 
     http$app.set("views", viewPath);
+    cb();
 }

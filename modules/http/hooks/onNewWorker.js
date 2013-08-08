@@ -1,5 +1,5 @@
 //Hook gets called each time the cluster creates a new worker
-module.exports = function(c$logger, p$config) {
+module.exports = function(c$logger, p$config, cb) {
     var express = require('express');
     var hookManager = require('../../../lib/HookManager');
 
@@ -9,7 +9,7 @@ module.exports = function(c$logger, p$config) {
     //Throw it into the Injector
     ModuleInjector.use("app", app);
 
-    hookManager.execute("httpAppStartup");
+    hookManager.execute("httpAppStartup", function() {});
 
     c$logger.debug("Starting HTTP Server(s)");
 
@@ -24,5 +24,7 @@ module.exports = function(c$logger, p$config) {
     //Put all started servers into the Injector
     ModuleInjector.use("servers", servers);
 
-    hookManager.execute("httpServerStart");
+    hookManager.execute("httpServerStart", function() {});
+
+    cb();
 }

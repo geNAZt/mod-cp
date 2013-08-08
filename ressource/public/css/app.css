@@ -5,7 +5,10 @@ body {
 .login-screen {
     background: #2C3E50;
 }
+.login-form>.btn-toolbar
+{
 
+}
 .login-icon {
     text-align: center;
 }

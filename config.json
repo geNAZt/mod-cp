@@ -9,6 +9,14 @@
         "enabled": true
     },
 
+    "db": {
+        "database": "modcp",
+        "user": "modcp",
+        "pass": "modcp",
+        "host": "localhost",
+        "init": false
+    },
+
     "modulePath": "modules/",
 
     "cluster": {
