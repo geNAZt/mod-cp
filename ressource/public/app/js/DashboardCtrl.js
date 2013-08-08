@@ -9,5 +9,44 @@ function DashboardCtrl($scope, $session, $socket) {
 
     $scope.user.joined_groups = joinGroups.join(", ");
 
-    $('.dropdown-toggle').dropdown()
+
+    var options = {
+        series: {
+            lines: { show: true }
+        },
+
+        xaxis: {
+            mode: "time",
+            show: true,
+            max: null
+        },
+
+        yaxis: {
+            show: true,
+            min: 0,
+            max: null
+        }
+    };
+
+    var data = [(new Date()).getTime(), 0];
+
+    var plot = $.plot($('#playerOnlineCount'), [data], options);
+
+    $socket.on('server:playerCount', function(d) {
+        if(data.length > 300) {
+            data.unshift();
+        }
+
+        data.push([(new Date()).getTime(), d]);
+
+        plot.setData([data]);
+        plot.setupGrid();
+        plot.draw();
+    });
+
+    $socket.emit('server:getPlayerCount');
+
+    $scope.$on("$destroy", function(){
+        $socket.emit("server:getPlayerCount:disable");
+    });
 }

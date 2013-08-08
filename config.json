@@ -17,6 +17,13 @@
         "init": false
     },
 
+    "jsonapi": {
+        "host": "localhost",
+        "user": "usernameGoesHere",
+        "pass": "passwordGoesHere",
+        "salt": "saltysalt"
+    },
+
     "modulePath": "modules/",
 
     "cluster": {

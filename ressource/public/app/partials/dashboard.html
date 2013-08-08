@@ -1,19 +1,40 @@
-<div class="container container-big">
-    <div class="user-container" style="width: 250px;">
-        <div class="title">User Information</div>
-        <div class="dis-table">
-            <img src="https://minotar.net/avatar/{{ user.mcname }}/38" class="user-pic">
+<div class="container-fluid container-big">
+    <div class="row-fluid">
+        <div class="span2">
+            <div class="user-container">
+                <div class="title">User Information</div>
+                <div class="dis-table">
+                    <img src="https://minotar.net/avatar/{{ user.mcname }}/38" class="user-pic">
+                </div>
+                <div class="dis-table">
+                    <div class="user-attr">MC: {{ user.mcname }}</div>
+                    <div class="user-attr">E-Mail: {{ user.email }}</div>
+                    <div class="user-attr">Groups: {{ user.joined_groups }}</div>
+                </div>
+            </div>
+
+            <div class="user-container">
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="#/server"><img src="vendor/famfamfam/icons/server.png"><span class="famfamfam">Server</span></a></li>
+                </ul>
+            </div>
         </div>
-        <div class="dis-table">
-            <div class="user-attr">MC: {{ user.mcname }}</div>
-            <div class="user-attr">E-Mail: {{ user.email }}</div>
-            <div class="user-attr">Groups: {{ user.joined_groups }}</div>
+        <div class="span8">
+            <div class="user-container">
+                <div class="title">Player Online Chart</div>
+                <div id="playerOnlineCount" style="height: 350px;">
+
+                </div>
+            </div>
+        </div>
+        <div class="span2">
+            <div class="user-container">
+                <div class="title">Current Online</div>
+
+            </div>
         </div>
     </div>
 
-    <div class="user-container" style="width: 250px;">
-        <ul class="nav nav-pills nav-stacked">
-            <li><a href="#/server"><img src="vendor/famfamfam/icons/server.png"><span class="famfamfam">Server</span></a></li>
-        </ul>
-    </div>
+
+
 </div>

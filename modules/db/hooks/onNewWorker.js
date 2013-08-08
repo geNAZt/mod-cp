@@ -1,6 +1,4 @@
 module.exports = function(p$config, cb) {
-    require('jugglingdb-mysql');
-
     var Schema = require('jugglingdb').Schema;
     var schema = new Schema('mysql', {
         database: p$config.database,
