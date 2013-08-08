@@ -1,14 +1,17 @@
 body {
     background: #2C3E50;
+    overflow: hidden;
+}
+
+.container-big {
+    width: 100%;
+    padding: 10px;
 }
 
 .login-screen {
     background: #2C3E50;
 }
-.login-form>.btn-toolbar
-{
 
-}
 .login-icon {
     text-align: center;
 }
@@ -16,4 +19,48 @@ body {
 .btn-primary img {
     max-width: 32px;
     max-height: 32px;
+}
+
+.user-container {
+    background-color: #edeff1;
+    padding: 4px 3px 4px;
+    position: relative;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.user-container .title {
+    border-bottom: solid 1px #dadcde;
+    height: 12px;
+    font-size: 10px;
+    margin-bottom: 2px;
+}
+
+.user-container .nav {
+    margin-bottom: 0;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    background: #486078;
+}
+
+.user-attr {
+    font-size: 10px;
+}
+
+.user-pic {
+    margin-right: 2px;
+}
+
+.dis-table {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.famfamfam {
+    position: relative;
+    top: 2px;
+    left: 2px;
 }

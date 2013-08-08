@@ -1,13 +1,24 @@
 angular.
-    module('modcp', ['pascalprecht.translate']).
-    factory('$user', [function() {
-        var sdo = {
-            isLogged: false,
-            username: ''
+    module('modcp', ['pascalprecht.translate','webStorageModule']).
+    factory('$session', function(webStorage) {
+        var session = {
+            get: function(key) {
+                return webStorage.get("session:" + key);
+            },
+
+            add: function(key, value) {
+                return webStorage.add("session:" + key, value);
+            },
+
+            remove: function(key) {
+                return webStorage.remove("session:" + key);
+            }
         };
 
-        return sdo;
-    }]).
+        if(typeof session.get("isLogged") == "undefined") session.add("isLogged", false);
+
+        return session;
+    }).
     factory('$socket', function ($rootScope) {
         var socket = io.connect();
 
@@ -32,9 +43,9 @@ angular.
             }
         };
     }).
-    run(function ($rootScope, $location, $user) {
+    run(function ($rootScope, $location, $session) {
         $rootScope.$on('$routeChangeStart', function(event, currRoute) {
-            if (typeof currRoute.access != "undefined" && !currRoute.access.isFree && !$user.isLogged) {
+            if (typeof currRoute.access != "undefined" && !currRoute.access.isFree && !$session.get("isLogged")) {
                 $location.path("/");
             }
         });

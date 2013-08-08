@@ -1,0 +1,19 @@
+<div class="container container-big">
+    <div class="user-container" style="width: 250px;">
+        <div class="title">User Information</div>
+        <div class="dis-table">
+            <img src="https://minotar.net/avatar/{{ user.mcname }}/38" class="user-pic">
+        </div>
+        <div class="dis-table">
+            <div class="user-attr">MC: {{ user.mcname }}</div>
+            <div class="user-attr">E-Mail: {{ user.email }}</div>
+            <div class="user-attr">Groups: {{ user.joined_groups }}</div>
+        </div>
+    </div>
+
+    <div class="user-container" style="width: 250px;">
+        <ul class="nav nav-pills nav-stacked">
+            <li><a href="#/server"><img src="vendor/famfamfam/icons/server.png"><span class="famfamfam">Server</span></a></li>
+        </ul>
+    </div>
+</div>

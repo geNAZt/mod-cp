@@ -800,7 +800,7 @@ h6 {
   font-size: 14.994px;
   /* 15px */
 
-  padding: 29px 20px 27px;
+  /* padding: 29px 20px 27px; */
   text-shadow: none;
   -webkit-transition: background-color .25s, color .25s, border-bottom-color .25s;
   -moz-transition: background-color .25s, color .25s, border-bottom-color .25s;

@@ -1,6 +1,6 @@
 var hookManager = require('../../../lib/HookManager');
 
-module.exports = function(socket) {
+module.exports = function(c$logger, socket) {
     socket.on('login:getProvider', function(data, callback) {
         hookManager.execute("getLoginProviderName", function(loginProvider) {
             var ret = [];
@@ -14,8 +14,19 @@ module.exports = function(socket) {
     });
 
     socket.on('login:loginAttempt', function(user, callback) {
-        hookManager.execute("loginAttempt", [user], [user.provider + "-login"], function() {
+        hookManager.execute("loginAttempt", [user], [user.provider + "-login"], function(resp) {
+            if(typeof resp[user.provider + "-login"] == "undefined") {
+                c$logger.warn("Login Provider " + user.provider + "-login not found");
+                return callback(resp);
+            }
 
+            if(resp[user.provider + "-login"] != false) {
+                socket.set("user", resp[user.provider + "-login"], function() {
+                    callback(resp[user.provider + "-login"]);
+                });
+            } else {
+                callback(resp[user.provider + "-login"]);
+            }
         });
     });
 };
