@@ -11,12 +11,8 @@
   ],
   "dependencies" : {
     "express"  			        :  	"3.3.x",
-    "nodemailer"		        :	"0.4.x",
-    "passport"			        :	"0.1.x",
     "nconf"                     :   "0.6.x",
     "async"                     :   "0.2.x",
-    "simple-cdn"                :   "0.1.x",
-    "express-validator"         :   "0.3.x",
     "socket.io"                 :   "0.9.x",
     "require-all"               :   "0.0.6",
     "swig"                      :   "0.14.0",
@@ -24,7 +20,8 @@
     "jugglingdb"                :   "0.2.x",
     "jugglingdb-mysql"          :   "git://github.com/jugglingdb/mysql-adapter.git",
     "request"                   :   "2.26.x",
-    "random-string"             :   "0.1.x"
+    "random-string"             :   "0.1.x",
+    "minecraft"                 :   "0.0.2"
   },
   "engines": {
     "node": ">=0.8"
