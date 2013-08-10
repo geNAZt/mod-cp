@@ -1,65 +1,16 @@
 body {
-    background: #2C3E50;
-    overflow: hidden;
+  background: #ecf0f1;
 }
 
-.container-big {
-    padding-top: 20px;
+.login-box {
+  background: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,.2);
+  box-shadow: 0 1px 1px rgba(0,0,0,.15);
 }
 
-.login-screen {
-    background: #2C3E50;
-}
-
-.login-icon {
-    text-align: center;
-}
-
-.btn-primary img {
-    max-width: 32px;
-    max-height: 32px;
-}
-
-.user-container {
-    background-color: #edeff1;
-    padding: 4px 3px 4px;
-    position: relative;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
-    margin-bottom: 12px;
-}
-
-.user-container .title {
-    border-bottom: solid 1px #dadcde;
-    height: 12px;
-    font-size: 10px;
-    margin-bottom: 2px;
-}
-
-.user-container .nav {
-    margin-bottom: 0;
-}
-
-.nav > li > a:hover, .nav > li > a:focus {
-    background: #486078;
-}
-
-.user-attr {
-    font-size: 10px;
-}
-
-.user-pic {
-    margin-right: 2px;
-}
-
-.dis-table {
-    display: table-cell;
-    vertical-align: top;
-}
-
-.famfamfam {
-    position: relative;
-    top: 2px;
-    left: 2px;
+#tabs li a:first-letter {
+    text-transform: uppercase;
 }
