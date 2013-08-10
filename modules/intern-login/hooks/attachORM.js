@@ -15,7 +15,7 @@ module.exports = function(db$schema, cb) {
     });
 
     User.hasAndBelongsToMany(Group, {as: 'groups', foreignKey: 'groupId'});
-    Permission.hasAndBelongsToMany(Group);
+    Group.hasAndBelongsToMany(Permission, {as: 'permissions', foreignKey: 'permissionId'});
 
     cb();
 }
