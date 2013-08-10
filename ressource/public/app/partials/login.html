@@ -7,7 +7,7 @@
                 </div>
                 <legend>{{ 'LOGIN' | translate }}</legend>
                 <p class="help-block">{{ 'AUTHSYSTEM_INFO' | translate }}.</p>
-                <ul id="myTab" class="nav nav-tabs">
+                <ul id="tabs" class="nav nav-tabs">
                   <li ng-repeat="provider in providers" class="{{selectedProvider==provider && 'active' || ''}}">
                     <a href="#/login/{{ provider }}" data-toggle="tab">{{ provider }}</a>
                   </li>
