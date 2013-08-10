@@ -1,4 +1,5 @@
-var request = require('request');
+var request = require('request'),
+    util = require('../../../lib/Util');
 
 module.exports = function(db$schema, c$logger, user, cb) {
     request('http://login.minecraft.net/?user=' + user.email + '&password=' + user.password + '&version=13', function(error, response) {
@@ -17,16 +18,13 @@ module.exports = function(db$schema, c$logger, user, cb) {
                     if(model == null) {
                         return cb(false);
                     } else {
-                        return model.groups(function(err, groups) {
+                        return util.getFullUser(model, function(err, user) {
                             if(err) {
-                                c$logger.warn("DB Error: ", err);
+                                c$logger.warn("DB Error: ", err.message);
                                 return cb(false);
                             }
 
-                            return cb({
-                                user: model,
-                                groups: groups
-                            });
+                            return cb(user);
                         });
                     }
                 });
