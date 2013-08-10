@@ -2,11 +2,11 @@
     "WELCOME_TO": "Welcome to",
     "USERNAME": "Username",
     "PASSWORD": "Password",
-    "AUTHSYSTEM_INFO": "Choose either »Minecraft« if you want to login using your Mojang account or »Internal« for the internal authentication system.",
+    "AUTHSYSTEM_INFO": "Choose either »Minecraft« if you want to login using your Mojang account or »Internal« for the internal authentication system",
     "ENTER_YOUR_EMAIL": "Please enter your E-Mail",
     "ENTER_YOUR_PASS": "Please enter your password",
     "LOGIN": "Login",
-    "LOST_PASSWORD": "Forgot your password?",
+    "LOST_PASSWORD": "Forgot your password",
     "LOGIN_PROVIDER_minecraft": "Login using Minecraft credentials",
     "LOGIN_PROVIDER_intern": "Login using internal auth",
     "USER_OR_PASS_WRONG": "Wrong E-Mail or password"

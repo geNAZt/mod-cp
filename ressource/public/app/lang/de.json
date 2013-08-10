@@ -6,7 +6,7 @@
     "ENTER_YOUR_EMAIL": "Bitte gib deine E-Mail ein",
     "ENTER_YOUR_PASS": "Bitte gib dein Passwort ein",
     "LOGIN": "Einloggen",
-    "LOST_PASSWORD": "Passwort vergessen?",
+    "LOST_PASSWORD": "Passwort vergessen",
     "LOGIN_PROVIDER_minecraft": "Mit Minecraft Daten einloggen",
     "LOGIN_PROVIDER_intern": "Mit ModCP Daten einloggen",
     "USER_OR_PASS_WRONG": "E-Mail oder Passwort falsch"
