@@ -66,7 +66,7 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
 
         var redrawInterval = setInterval(function() {
             var tempNewData = newDataPoints;
-            //newDataPoints = {};
+            newDataPoints = {};
 
             var time = (new Date()).getTime();
 
@@ -93,7 +93,7 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
                     data[labelIndex].data.splice(0, 1);
                 }
 
-                data[labelIndex].data.push([time, tempNewData[value].playerCount]);
+                data[labelIndex].data.push([time, tempNewData[value]]);
             });
 
             /*var overallPlayer = 0;
