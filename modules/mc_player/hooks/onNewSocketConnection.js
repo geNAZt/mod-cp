@@ -2,10 +2,10 @@ var util = require('../../../lib/Util');
 
 module.exports = function(c$logger, p$playerStorage, socket) {
     function playListener(player) {
-        if(player === -1) {
-            socket.emit('server:playerCount', -1);
+        if(player.players === -1) {
+            socket.emit('server:playerCount', {name: player.name, playerCount: -1});
         } else {
-            socket.emit('server:playerCount', player.length);
+            socket.emit('server:playerCount', {name: player.name, playerCount: player.players.length});
         }
     }
 

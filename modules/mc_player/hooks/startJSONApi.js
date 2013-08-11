@@ -8,12 +8,17 @@ module.exports = function(jsonapi$api, c$logger, cb) {
     setInterval(function() {
         jsonapi$api.call("getPlayers", [], function(err, result) {
             if(err) {
-                ee.emit("players", -1);
-                c$logger.debug(err);
+                c$logger.error(err);
             }
 
             else {
-                ee.emit("players", result);
+                result.forEach(function(value) {
+                    if(value.err) {
+                        ee.emit("players", {name: value.name, players: -1});
+                    } else {
+                        ee.emit("players", {name: value.name, players: value.result});
+                    }
+                });
             }
         });
     }, 1000);

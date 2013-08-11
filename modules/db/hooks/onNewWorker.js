@@ -15,6 +15,10 @@ module.exports = function(p$config, cb) {
             schema.autoupdate();
         }
 
+        hookManager.execute("afterORMInit", function() {
+
+        });
+
         cb();
     });
 }
