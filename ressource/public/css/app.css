@@ -30,3 +30,14 @@ body {
 .mcp-nav .panel-heading {
   margin: 0px 0px 0px 0px;
 }
+
+@media (max-width: 768px) {
+  .mcp-navbar {
+    position: relative;
+  }
+  .mcp-navbar .mcp-navpill {
+    position: absolute;
+    left: 5px;
+    top: 5px
+  }
+}
