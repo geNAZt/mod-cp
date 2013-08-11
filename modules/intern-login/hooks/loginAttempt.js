@@ -10,16 +10,13 @@ module.exports = function(db$schema, c$logger, user, cb) {
                     if(model == null) {
                         return cb(false);
                     } else {
-                        return model.groups(function(err, groups) {
+                        return util.getFullUser(model, function(err, user) {
                             if(err) {
-                                c$logger.warn("DB Error: ", err);
+                                c$logger.warn("DB Error: ", err.message);
                                 return cb(false);
                             }
 
-                            return cb({
-                                user: model,
-                                groups: groups
-                            });
+                            return cb(user);
                         });
                     }
                 });
