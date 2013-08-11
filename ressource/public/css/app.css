@@ -2,7 +2,7 @@ body {
   background: #ecf0f1;
 }
 
-.login-box {
+.mcp-login-box {
   background: #fff;
   padding: 20px;
   margin-top: 20px;
@@ -11,6 +11,10 @@ body {
   box-shadow: 0 1px 1px rgba(0,0,0,.15);
 }
 
-#tabs li a:first-letter {
+.mcp-tabs li a:first-letter {
     text-transform: uppercase;
+}
+
+.mcp-contentcontainer {
+  margin-top: 90px;
 }

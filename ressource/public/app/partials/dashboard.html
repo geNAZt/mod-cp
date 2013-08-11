@@ -1,36 +1,75 @@
-<div class="container-fluid container-big">
-    <div class="row-fluid">
-        <div class="span2">
-            <div class="user-container">
-                <div class="title">User Information</div>
-                <div class="dis-table">
-                    <img src="https://minotar.net/avatar/{{ user.mcname }}/38" class="user-pic">
-                </div>
-                <div class="dis-table">
-                    <div class="user-attr">MC: {{ user.mcname }}</div>
-                    <div class="user-attr">E-Mail: {{ user.email }}</div>
-                    <div class="user-attr">Groups: {{ user.joined_groups }}</div>
-                </div>
-            </div>
+<div class="navbar navbar-fixed-top">
+    <div class="container">
+        <a href="/#/dashboard" class="navbar-brand">ModCP</a>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="nav-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="/#/dashboard">Dashboard</a>
+                </li>
+            </ul>
 
-            <div class="user-container">
-                <ul class="nav nav-pills nav-stacked">
-                    <li><a href="#/server"><img src="vendor/famfamfam/icons/server.png"><span class="famfamfam">Server</span></a></li>
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic"> {{ user.mcname }} <span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="themes">
+                        <li class="dropdown-header">E-Mail: {{ user.email }}</li>
+                        <li class="dropdown-header">{{ user.joined_groups }}</li>
+                        <li class="divider">
+                        <li><a tabindex="-1" href="/#/">Logout</a></li>                       
+                    </ul>
+                </li>
+            </ul>
+        </div>
+<<<<<<< HEAD
+    </div>
+</div>
+
+<div class="container mcp-contentcontainer">
+    <div class="row">
+        <div class="col-lg-3">
+
+
+            <div class="bs-sidebar affix-top">
+                <ul class="nav bs-sidenav">    
+                     <li>
+                        <a href="#/server"><img src="vendor/famfamfam/icons/server.png"><span class="famfamfam">Menu 1</span></a>
+                        <ul class="nav">
+                            <li><a href="#">Menu 1.1</a></li>
+                            <li><a href="#">Menu 1.2</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Menu 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Menu 3</a>
+                    </li>
+                    <li>
+                        <a href="#">Menu 4</a>
+                    </li>
+                    <li>
+                        <a href="#">Menu 5</a>
+                    </li>
+                    <li>
+                        <a href="#">Menu 6</a>
+                    </li>
                 </ul>
             </div>
         </div>
-        <div class="span8">
-            <div class="user-container" ng-show="onlineChart">
-                <div class="title">Player Online Chart</div>
-                <div id="playerOnlineCount" style="height: 350px;">
 
+        <div class="col-lg-9">
+            <div class="span8">
+                <div class="user-container">
+                    <div class="title">Player Online Chart</div>
+                    <div id="playerOnlineCount" style="height: 350px;">
+
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="span2">
-            <div class="user-container">
-                <div class="title">Current Online</div>
-
             </div>
         </div>
     </div>
