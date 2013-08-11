@@ -55,31 +55,47 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
             return false;
         }
 
+        var newDataPoints = {};
         $socket.on('server:playerCount', function(d) {
-            var labelIndex = getLabel(d.name);
-
-            if(labelIndex === false) {
-                var overallIndex = getLabel("Player");
-                var newLabel = {
-                    label: d.name,
-                    data: []
-                };
-
-                for(var i = 0; i < data[overallIndex].data.length; i++) {
-                    newLabel.data.push(data[overallIndex].data[i][0], -1);
-                }
-
-                labelIndex = data.push(newLabel) - 1;
+            if(typeof newDataPoints[d.name] != "undefined") {
+                console.log("Got more data than i should get");
+            } else {
+                newDataPoints[d.name] = d.playerCount;
             }
-
-            if(data[labelIndex].data.length > 300) {
-               data[labelIndex].data.splice(0, 1);
-            }
-
-            data[labelIndex].data.push([(new Date()).getTime(), d.playerCount]);
         });
 
         var redrawInterval = setInterval(function() {
+            var tempNewData = newDataPoints;
+            newDataPoints = {};
+
+            var time = (new Date()).getTime();
+
+            tempNewData['Dummy #1'] = Math.random()*1000;
+
+            Object.keys(tempNewData).forEach(function(value) {
+                var labelIndex = getLabel(value);
+
+                if(labelIndex === false) {
+                    var overallIndex = getLabel("Player");
+                    var newLabel = {
+                        label: d.name,
+                        data: []
+                    };
+
+                    for(var i = 0; i < data[overallIndex].data.length; i++) {
+                        newLabel.data.push(data[overallIndex].data[i][0], -1);
+                    }
+
+                    labelIndex = data.push(newLabel) - 1;
+                }
+
+                if(data[labelIndex].data.length > 300) {
+                    data[labelIndex].data.splice(0, 1);
+                }
+
+                data[labelIndex].data.push([time, tempNewData[value].playerCount]);
+            });
+
             var overallPlayer = 0;
 
             data.forEach(function(value) {
@@ -93,7 +109,7 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
                 data[labelIndex].data.splice(0, 1);
             }
 
-            data[labelIndex].data.push([(new Date()).getTime(), overallPlayer]);
+            data[labelIndex].data.push([time, overallPlayer]);
 
             plot.setData(data);
             plot.setupGrid();
