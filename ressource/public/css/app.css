@@ -1,6 +1,49 @@
+/**
+ * General
+ */
+
 body {
   background: #ecf0f1;
 }
+
+.mcp-contentcontainer {
+  margin-top: 90px;
+}
+
+@media (max-width: 768px) {
+  .mcp-contentcontainer {
+    margin-top: 0px;
+  }
+}
+
+/*Navbar*/
+
+.mcp-navpill {
+  margin-top: 7px;
+}
+
+.mcp-nav {
+  padding: 0px;
+}
+
+.mcp-nav .panel-heading {
+  margin: 0px 0px 0px 0px;
+}
+
+@media (max-width: 768px) {
+  .mcp-navbar {
+    position: relative;
+  }
+  .mcp-navbar .mcp-navpill {
+    position: absolute;
+    left: 15px;
+    top: 0px
+  }
+}
+
+/**
+ * Login Screen
+ */
 
 .mcp-login-box {
   background: #fff;
@@ -15,37 +58,10 @@ body {
     text-transform: uppercase;
 }
 
-.mcp-contentcontainer {
-  margin-top: 90px;
-}
-
-.mcp-navpill {
-  margin-top: 7px;
-}
-
-.mcp-nav {
-  padding: 0px;
-}
-
-.mcp-nav .panel-heading {
-  margin: 0px 0px 0px 0px;
-}
+/**
+ * Dashboard
+ */
 
 .panel .mcp-avatar {
   padding: 3px;
-}
-
-@media (max-width: 768px) {
-  .mcp-navbar {
-    position: relative;
-  }
-  .mcp-navbar .mcp-navpill {
-    position: absolute;
-    left: 15px;
-    top: 0px
-  }
-
-  .mcp-contentcontainer {
-    margin-top: 00px;
-  }
 }
