@@ -34,7 +34,7 @@
         "availableLevels": ["debug", "info", "warn", "error"],
         "enabledLevels": ["debug", "info", "warn", "error"],
 
-        "format": "[{length=10}%timeRun%][{length=5}%level%] {length=600}%message% {length=8, suffix=kB, round=2}%heapUsed% / {length=8, suffix=mB, round=4}%heapAlloc% - {length=8, suffix=mB, round=4}%rss%",
+        "format": "[{length=10}%timeRun%][{length=5}%level%] {length=60}%message% {length=8, suffix=kB, round=2}%heapUsed% / {length=8, suffix=mB, round=4}%heapAlloc% - {length=8, suffix=mB, round=4}%rss%",
 
         "folder": "./logs",
 
