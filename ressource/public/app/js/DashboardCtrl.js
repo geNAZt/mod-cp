@@ -56,13 +56,13 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
         }
 
         var newDataPoints = {};
-        $socket.on('server:playerCount', function(d) {
+        /*$socket.on('server:playerCount', function(d) {
             if(typeof newDataPoints[d.name] != "undefined") {
                 console.log("Got more data than i should get");
             } else {
                 newDataPoints[d.name] = d.playerCount;
             }
-        });
+        });*/
 
         var redrawInterval = setInterval(function() {
             var tempNewData = newDataPoints;
@@ -76,15 +76,15 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
                 var labelIndex = getLabel(value);
 
                 if(labelIndex === false) {
-                    var overallIndex = getLabel("Player");
+                    //var overallIndex = getLabel("Player");
                     var newLabel = {
                         label: value,
                         data: []
                     };
 
-                    for(var i = 0; i < data[overallIndex].data.length; i++) {
+                    /*for(var i = 0; i < data[overallIndex].data.length; i++) {
                         newLabel.data.push(data[overallIndex].data[i][0], -1);
-                    }
+                    } */
 
                     labelIndex = data.push(newLabel) - 1;
                 }
@@ -96,7 +96,7 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
                 data[labelIndex].data.push([time, tempNewData[value].playerCount]);
             });
 
-            var overallPlayer = 0;
+            /*var overallPlayer = 0;
 
             data.forEach(function(value) {
                 if(value.label != "Player" && value.data[value.data.length - 1][1] != -1) {
@@ -109,7 +109,7 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
                 data[labelIndex].data.splice(0, 1);
             }
 
-            data[labelIndex].data.push([time, overallPlayer]);
+            data[labelIndex].data.push([time, overallPlayer]); */
 
             plot.setData(data);
             plot.setupGrid();
