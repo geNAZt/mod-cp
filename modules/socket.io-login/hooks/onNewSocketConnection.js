@@ -1,6 +1,16 @@
 var hookManager = require('../../../lib/HookManager');
 
 module.exports = function(c$logger, socket) {
+    socket.on('login:checkLogin', function(data, callback) {
+        socket.get("user", function(err, user) {
+            if(user == null) {
+                callback(false);
+            } else {
+                callback(true);
+            }
+        });
+    });
+
     socket.on('login:getProvider', function(data, callback) {
         hookManager.execute("getLoginProviderName", function(loginProvider) {
             var ret = [];
