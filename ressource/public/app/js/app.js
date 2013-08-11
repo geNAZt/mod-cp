@@ -75,12 +75,23 @@ angular.
             if (typeof currRoute.access != "undefined" && !currRoute.access.isFree) {
                 $socket.emit('login:checkLogin', {}, function(loggedin) {
                     if(loggedin == false && $session.get("isLogged")) {
-                        $session.remove("isLogged");
-                        $session.remove("user");
-                        $session.remove("permissions");
-                        $session.remove("groups");
+                        $socket.emit("login:loginAttempt", {provider: 'intern', email: $session.get("user").email}, function(result) {
+                            if(result == false) {
+                                $session.remove("isLogged");
+                                $session.remove("user");
+                                $session.remove("permissions");
+                                $session.remove("groups");
 
-                        $session.add("isLogged", false);
+                                $session.add("isLogged", false);
+
+                                $location.path("/");
+                            } else {
+                                $session.add("user", result.user);
+                                $session.add("isLogged", true);
+                                $session.add("groups", result.groups);
+                                $session.add("permissions", result.permissions);
+                            }
+                        });
                     }
 
                     if(!$session.get("isLogged")) {
