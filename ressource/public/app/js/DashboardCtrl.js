@@ -70,7 +70,7 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
 
             var time = (new Date()).getTime();
 
-            tempNewData['Dummy #1'] = Math.random()*1000;
+            tempNewData['Dummy'] = Math.round(Math.random()*1000);
 
             Object.keys(tempNewData).forEach(function(value) {
                 var labelIndex = getLabel(value);
