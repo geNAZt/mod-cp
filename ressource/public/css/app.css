@@ -18,3 +18,15 @@ body {
 .mcp-contentcontainer {
   margin-top: 90px;
 }
+
+.mcp-navpill {
+  margin-top: 7px;
+}
+
+.mcp-nav {
+  padding: 0px;
+}
+
+.mcp-nav .panel-heading {
+  margin: 0px 0px 0px 0px;
+}
