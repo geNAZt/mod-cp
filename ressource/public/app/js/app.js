@@ -110,13 +110,6 @@ angular.
                     isFree: true
                 }
             }).
-            when('/login/:provider', {
-                templateUrl: 'app/partials/login.html',
-                controller: "LoginCtrl",
-                access: {
-                    isFree: true
-                }
-            }).
             when('/dashboard', {
                 templateUrl: 'app/partials/dashboard.html',
                 controller: "DashboardCtrl",
