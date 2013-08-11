@@ -1,4 +1,4 @@
-var request = require('request');
+var util = require('../../../lib/Util');
 
 module.exports = function(db$schema, c$logger, user, cb) {
     db$schema.models.User.findOne({where: {email: user.email}}, function(err, model) {
