@@ -31,13 +31,21 @@ body {
   margin: 0px 0px 0px 0px;
 }
 
+.panel .mcp-avatar {
+  padding: 3px;
+}
+
 @media (max-width: 768px) {
   .mcp-navbar {
     position: relative;
   }
   .mcp-navbar .mcp-navpill {
     position: absolute;
-    left: 5px;
-    top: 5px
+    left: 15px;
+    top: 0px
+  }
+
+  .mcp-contentcontainer {
+    margin-top: 00px;
   }
 }
