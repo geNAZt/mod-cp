@@ -14,7 +14,8 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
 
         var options = {
             series: {
-                lines: { show: true }
+                lines: { show: true },
+                shadowSize: 0
             },
 
             xaxis: {
@@ -28,6 +29,12 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
                 show: true,
                 min: -1,
                 max: null
+            },
+            grid: { 
+                hoverable: true,
+                clickable: true,
+                tickColor: "#eee",
+                borderWidth: 0
             }
         };
 
