@@ -19,27 +19,31 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
 
             xaxis: {
                 mode: "time",
+                timezone: "browser",
                 show: true,
                 max: null
             },
 
             yaxis: {
                 show: true,
-                min: 0,
+                min: -1,
                 max: null
             }
         };
 
-        var data = [(new Date()).getTime(), 0];
+        var data = {
+            label: "Player",
+            data: []
+        };
 
         var plot = $.plot($('#playerOnlineCount'), [data], options);
 
         $socket.on('server:playerCount', function(d) {
-            if(data.length > 300) {
-                data.unshift();
+            if(data.data.length > 300) {
+                data.data.splice(0, 1);
             }
 
-            data.push([(new Date()).getTime(), d]);
+            data.data.push([(new Date()).getTime(), d]);
 
             plot.setData([data]);
             plot.setupGrid();
