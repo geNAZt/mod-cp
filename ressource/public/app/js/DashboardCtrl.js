@@ -71,7 +71,7 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
                 if(labelIndex === false) {
                     var overallIndex = getLabel("Player");
                     var newLabel = {
-                        label: d.name,
+                        label: value,
                         data: []
                     };
 
