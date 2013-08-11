@@ -1,7 +1,7 @@
 {
     "http": {
         "network": [
-            { "ip": "0.0.0.0", "port": 80 }
+            { "ip": "0.0.0.0", "port": 8080 }
         ]
     },
 
@@ -15,13 +15,6 @@
         "pass": "modcp",
         "host": "localhost",
         "init": false
-    },
-
-    "jsonapi": {
-        "host": "localhost",
-        "user": "usernameGoesHere",
-        "pass": "passwordGoesHere",
-        "salt": "saltysalt"
     },
 
     "modulePath": "modules/",
