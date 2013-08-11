@@ -9,7 +9,7 @@
                 <p class="help-block">{{ 'AUTHSYSTEM_INFO' | translate }}.</p>
                 <ul class="nav nav-tabs mcp-tabs">
                   <li ng-repeat="provider in providers" class="{{selectedProvider==provider && 'active' || ''}}">
-                    <a href="#/login/{{ provider }}" data-toggle="tab">{{ provider }}</a>
+                    <a data-toggle="tab" ng-click="changeProvider(provider)">{{ provider }}</a>
                   </li>
                 </ul>
                 </br>
@@ -24,7 +24,7 @@
                             <label for="login-pass">Password</label>
                             <input type="password" class="form-control"
                              placeholder="{{ 'ENTER_YOUR_PASS' | translate }}" ng-click="reset()" ng-model="user.password" id="login-pass">
-                            <p class="help-block"><a class="login-link" href="#/lostpass">{{ 'LOST_PASSWORD' | translate }}?</a></p>
+                            <p class="help-block" ng-show="lostPass"><a class="login-link" href="#/lostpass">{{ 'LOST_PASSWORD' | translate }}?</a></p>
                         </div>
                         
                         <button type="submit" class="btn btn-primary" ng-click="login(user)">{{ 'LOGIN' | translate }}</button>
