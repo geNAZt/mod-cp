@@ -12,13 +12,17 @@ module.exports = function(jsonapi$api, c$logger, cb) {
             }
 
             else {
+                var newResult = [];
+
                 result.forEach(function(value) {
                     if(value.err) {
-                        ee.emit("players", {name: value.name, players: -1});
+                        newResult.push({name: value.name, playerCount: -1});
                     } else {
-                        ee.emit("players", {name: value.name, players: value.result});
+                        newResult.push({name: value.name, playerCount: value.result.length});
                     }
                 });
+
+                ee.emit("players", newResult);
             }
         });
     }, 1000);

@@ -55,36 +55,23 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
             return false;
         }
 
-        var newDataPoints = {};
-        /*$socket.on('server:playerCount', function(d) {
-            if(typeof newDataPoints[d.name] != "undefined") {
-                console.log("Got more data than i should get");
-            } else {
-                newDataPoints[d.name] = d.playerCount;
-            }
-        });*/
-
-        var redrawInterval = setInterval(function() {
-            var tempNewData = newDataPoints;
-            newDataPoints = {};
-
+        $socket.on('server:playerCount', function(player) {
             var time = (new Date()).getTime();
 
-            tempNewData['Dummy'] = Math.round(Math.random()*1000);
-
-            Object.keys(tempNewData).forEach(function(value) {
-                var labelIndex = getLabel(value);
+            player.push({name: "Dummy #1", playerCount: Math.round(Math.random()*1000)});
+            player.forEach(function(value) {
+                var labelIndex = getLabel(value.name);
 
                 if(labelIndex === false) {
-                    //var overallIndex = getLabel("Player");
+                    var overallIndex = getLabel("Player");
                     var newLabel = {
-                        label: value,
+                        label: value.name,
                         data: []
                     };
 
-                    /*for(var i = 0; i < data[overallIndex].data.length; i++) {
+                    for(var i = 0; i < data[overallIndex].data.length; i++) {
                         newLabel.data.push(data[overallIndex].data[i][0], -1);
-                    } */
+                    }
 
                     labelIndex = data.push(newLabel) - 1;
                 }
@@ -93,10 +80,10 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
                     data[labelIndex].data.splice(0, 1);
                 }
 
-                data[labelIndex].data.push([time, tempNewData[value]]);
+                data[labelIndex].data.push([time, value.playerCount]);
             });
 
-            /*var overallPlayer = 0;
+            var overallPlayer = 0;
 
             data.forEach(function(value) {
                 if(value.label != "Player" && value.data[value.data.length - 1][1] != -1) {
@@ -109,18 +96,17 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
                 data[labelIndex].data.splice(0, 1);
             }
 
-            data[labelIndex].data.push([time, overallPlayer]); */
+            data[labelIndex].data.push([time, overallPlayer]);
 
             plot.setData(data);
             plot.setupGrid();
             plot.draw();
-        }, 1000);
+        });
 
         $socket.emit('server:getPlayerCount');
 
         $scope.$on("$destroy", function(){
             $socket.emit("server:getPlayerCount:disable");
-            clearInterval(redrawInterval);
         });
     }
 }
