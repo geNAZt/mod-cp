@@ -1,4 +1,4 @@
-<div class="navbar navbar-fixed-top">
+<div class="mcp-navbar navbar navbar-fixed-top">
     <div class="container">
         <a href="/#/dashboard" class="navbar-brand">ModCP</a>
         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
@@ -11,20 +11,20 @@
                 <li>
                     <a href="/#/dashboard">Dashboard</a>
                 </li>
-            </ul>
-
-            <ul class="nav pull-right nav-pills mcp-navpill">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic"> {{ user.mcname }} <span class="caret"></span></a>
-                    <ul class="dropdown-menu" aria-labelledby="themes">
-                        <li class="dropdown-header">E-Mail: {{ user.email }}</li>
-                        <li class="dropdown-header">{{ user.joined_groups }}</li>
-                        <li class="divider">
-                        <li><a tabindex="-1" href="/#/">Logout</a></li>                       
-                    </ul>
-                </li>
-            </ul>
+            </ul>            
         </div>
+
+        <ul class="nav pull-right nav-pills mcp-navpill">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic"> {{ user.mcname }} <span class="caret"></span></a>
+                <ul class="dropdown-menu" aria-labelledby="themes">
+                    <li class="dropdown-header">E-Mail: {{ user.email }}</li>
+                    <li class="dropdown-header">{{ user.joined_groups }}</li>
+                    <li class="divider">
+                    <li><a tabindex="-1" href="/#/">Logout</a></li>                       
+                </ul>
+            </li>
+        </ul>
     </div>
 </div>
 
