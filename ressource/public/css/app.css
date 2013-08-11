@@ -62,6 +62,10 @@ body {
  * Dashboard
  */
 
-.panel .mcp-avatar {
-  padding: 3px;
+.mcp-avatarwrapper {
+  margin: 3px;
+  background: transparent url('../images/loader.gif') no-repeat center center;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
 }
