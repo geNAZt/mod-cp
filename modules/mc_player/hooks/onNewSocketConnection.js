@@ -1,17 +1,35 @@
+var util = require('../../../lib/Util');
+
 module.exports = function(c$logger, p$playerStorage, socket) {
     function playListener(player) {
-        socket.emit('server:playerCount', player.length);
+        if(player.players === -1) {
+            socket.emit('server:playerCount', {name: player.name, playerCount: -1});
+        } else {
+            socket.emit('server:playerCount', {name: player.name, playerCount: player.players.length});
+        }
     }
 
     socket.on('server:getPlayerCount', function() {
-        p$playerStorage.on("players", playListener);
+        socket.get("user", function(err, user) {
+            if(user != null && util.hasPermission(user.permissions, "server.user.online.chart")) {
+                p$playerStorage.on("players", playListener);
+            }
+        });
     });
 
     socket.on('server:getPlayerCount:disable', function() {
-        p$playerStorage.removeListener("players", playListener);
+        socket.get("user", function(err, user) {
+            if(user != null && util.hasPermission(user.permissions, "server.user.online.chart")) {
+                p$playerStorage.removeListener("players", playListener);
+            }
+        });
     });
 
     socket.on('disconnect', function() {
-        p$playerStorage.removeListener("players", playListener);
+        socket.get("user", function(err, user) {
+            if(user != null && util.hasPermission(user.permissions, "server.user.online.chart")) {
+                p$playerStorage.removeListener("players", playListener);
+            }
+        });
     });
 };

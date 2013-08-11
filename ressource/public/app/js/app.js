@@ -19,6 +19,33 @@ angular.
 
         return session;
     }).
+    factory('$permission', function($session) {
+        var permission = {
+            hasPermission: function(permission) {
+                var permissions = $session.get("permissions");
+
+                if(typeof permissions == "undefined") return false;
+
+                for(var i = 0; i < permissions.length; i++) {
+                    var per = permissions[i];
+
+                    if(per.substr(per.length - 1, 1) == "*") {
+                        if(permission.indexOf(per.replace("*", "")) == 0) {
+                            return true;
+                        }
+                    } else {
+                        if(permission === per) {
+                            return true;
+                        }
+                    }
+                }
+
+                return false;
+            }
+        };
+
+        return permission;
+    }).
     factory('$socket', function ($rootScope) {
         var socket = io.connect();
 
@@ -43,10 +70,23 @@ angular.
             }
         };
     }).
-    run(function ($rootScope, $location, $session) {
+    run(function ($rootScope, $location, $session, $socket) {
         $rootScope.$on('$routeChangeStart', function(event, currRoute) {
-            if (typeof currRoute.access != "undefined" && !currRoute.access.isFree && !$session.get("isLogged")) {
-                $location.path("/");
+            if (typeof currRoute.access != "undefined" && !currRoute.access.isFree) {
+                $socket.emit('login:checkLogin', {}, function(loggedin) {
+                    if(loggedin == false && $session.get("isLogged")) {
+                        $session.remove("isLogged");
+                        $session.remove("user");
+                        $session.remove("permissions");
+                        $session.remove("groups");
+
+                        $session.add("isLogged", false);
+                    }
+
+                    if(!$session.get("isLogged")) {
+                        $location.path("/");
+                    }
+                });
             }
         });
     }).
