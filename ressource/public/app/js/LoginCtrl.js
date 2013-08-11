@@ -1,12 +1,9 @@
-function LoginCtrl($scope, $location, $session, $socket, $routeParams) {
+function LoginCtrl($scope, $location, $session, $socket) {
     if($session.get("isLogged") == true) {
         $location.path("dashboard");
     } else {
-        if(typeof $routeParams.provider != "undefined") {
-            $scope.selectedProvider = $routeParams.provider;
-        } else {
-            $scope.selectedProvider = "intern";
-        }
+        $scope.selectedProvider = "intern";
+        $scope.lostPass = true;
 
         $socket.emit("login:getProvider", {}, function(provider) {
             $scope.providers = provider;
@@ -14,6 +11,11 @@ function LoginCtrl($scope, $location, $session, $socket, $routeParams) {
 
         $scope.name = "ModCP";
         $scope.user = {};
+
+        $scope.changeProvider = function(newProvider) {
+            $scope.selectedProvider = newProvider;
+            $scope.lostPass = ($scope.selectedProvider == "intern");
+        };
 
         $scope.login = function(user) {
             user.provider = $scope.selectedProvider;
