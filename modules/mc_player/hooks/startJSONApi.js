@@ -7,7 +7,8 @@ module.exports = function(jsonapi$api, cb) {
 
     setInterval(function() {
         jsonapi$api.call("getPlayers", [], function(err, result) {
-            ee.emit("players", result);
+            if(typeof result == "undefined") ee.emit("players", -1);
+            else ee.emit("players", result);
         });
     }, 1000);
 

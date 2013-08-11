@@ -25,6 +25,7 @@ function LoginCtrl($scope, $location, $session, $socket, $routeParams) {
                     $session.add("user", result.user);
                     $session.add("isLogged", true);
                     $session.add("groups", result.groups);
+                    $session.add("permissions", result.permissions);
 
                     $location.path("dashboard");
                 }
