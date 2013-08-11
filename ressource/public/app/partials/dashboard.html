@@ -31,10 +31,10 @@
 <div class="container mcp-contentcontainer">
     <div class="row">
         <div class="col-lg-3">
-            <h4>Navigation</h4>
-            <div class="bs-sidebar affix-top">
-                <ul class="nav bs-sidenav">    
-                     <li>
+            <div class="panel mcp-nav">
+                <div class="panel-heading">Navigation</div>
+                <ul class="nav">    
+                    <li>
                         <a href="#/server"><span class="famfamfam">Menu 1</span></a>
                         <ul class="nav">
                             <li><a href="#">Menu 1.1</a></li>
@@ -58,22 +58,31 @@
                     </li>
                 </ul>
             </div>
+            <div class="panel">
+              <div class="panel-heading">Online players</div>
+              <img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="user-pic">
+            </div>
         </div>
 
         <div class="col-lg-9">
-            <h4>Dashboard</h4>
+            <div class="panel">
+              
+                <h4>Dashboard</h4>
 
-            <div class="span8">
-                <div class="user-container">
-                    <div class="title">Player Online Chart</div>
-                    <div id="playerOnlineCount" style="height: 350px;">
+                <div class="span8">
+                    <div class="user-container">
+                        <h6>Player Online Chart</h6>
+                        <div id="playerOnlineCount" style="height: 350px;">
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
+<script type="text/javascript">
+    $('.tooltip-test').tooltip();
+</script>
 
 </div>

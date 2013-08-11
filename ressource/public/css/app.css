@@ -19,11 +19,14 @@ body {
   margin-top: 90px;
 }
 
-.bs-sidebar li ul {
-  margin-left: 25px;
-  border-left:  2px solid #18bc9c;
-}
-
 .mcp-navpill {
   margin-top: 7px;
+}
+
+.mcp-nav {
+  padding: 0px;
+}
+
+.mcp-nav .panel-heading {
+  margin: 0px 0px 0px 0px;
 }
