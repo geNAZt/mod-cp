@@ -66,7 +66,7 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
 
         var redrawInterval = setInterval(function() {
             var tempNewData = newDataPoints;
-            newDataPoints = {};
+            //newDataPoints = {};
 
             var time = (new Date()).getTime();
 
