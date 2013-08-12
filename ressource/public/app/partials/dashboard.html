@@ -118,6 +118,13 @@
 
                 <div class="span8">
                     <div class="user-container">
+                        <h6>Server Status</h6>
+                        <div id="serverOnline">
+                            <div class="btn {{ server.playerCount != -1 && 'btn-success' || 'btn-danger' }}" ng-repeat="server in servers">{{ server.label }}{{ server.playerCount != -1 && ': ' + server.playerCount || '' }}</div>
+                        </div>
+                    </div>
+
+                    <div class="user-container">
                         <h6>Player Online Chart</h6>
                         <div id="playerOnlineCount" style="height: 350px;">
 

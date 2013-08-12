@@ -9,6 +9,7 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
     $scope.user.joined_groups = joinGroups.join(", ");
 
     $scope.onlineChart = false;
+    $scope.servers = [];
     if($permission.hasPermission("server.user.online.chart")) {
         $scope.onlineChart = true;
 
@@ -45,6 +46,16 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
 
         var plot = $.plot($('#playerOnlineCount'), data, options);
 
+        function getServer(label) {
+            for(var i = 0; i < $scope.servers.length; i++) {
+                if($scope.servers[i].label === label) {
+                    return i;
+                }
+            }
+
+            return false;
+        }
+
         function getLabel(label) {
             for(var i = 0; i < data.length; i++) {
                 if(data[i].label === label) {
@@ -59,6 +70,18 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
             var time = (new Date()).getTime();
 
             player.forEach(function(value) {
+                var serverIndex = getServer(value.name);
+                if(serverIndex === false) {
+                    var newServer = {
+                        label: value.name,
+                        playerCount: value.playerCount
+                    };
+
+                    $scope.servers.push(newServer);
+                } else {
+                    $scope.servers[serverIndex].playerCount = value.playerCount;
+                }
+
                 var labelIndex = getLabel(value.name);
 
                 if(labelIndex === false) {
