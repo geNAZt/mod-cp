@@ -58,7 +58,6 @@ function DashboardCtrl($scope, $session, $socket, $permission) {
         $socket.on('server:playerCount', function(player) {
             var time = (new Date()).getTime();
 
-            player.push({name: "Dummy #1", playerCount: Math.round(Math.random()*1000)});
             player.forEach(function(value) {
                 var labelIndex = getLabel(value.name);
 

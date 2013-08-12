@@ -21,7 +21,8 @@
     "jugglingdb-mysql"          :   "git://github.com/jugglingdb/mysql-adapter.git",
     "request"                   :   "2.26.x",
     "random-string"             :   "0.1.x",
-    "minecraft"                 :   "git://github.com/geNAZt/node-minecraft.git"
+    "minecraft"                 :   "git://github.com/geNAZt/node-minecraft.git",
+    "socket.io-session"         :   "0.0.x"
   },
   "engines": {
     "node": ">=0.8"

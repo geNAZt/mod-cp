@@ -15,6 +15,15 @@ module.exports = function(http$app, cb) {
     http$app.engine('.html', cons.swig);
     http$app.set('view engine', 'html');
 
+    var store = new express.session.MemoryStore();
+    var secret = 'jfkldsjfhsdfhkl';
+
+    http$app.use(express.cookieParser());
+    http$app.use(express.session({store: store, secret: secret}));
+
+    ModuleInjector.use("store", store);
+    ModuleInjector.use("secret", secret);
+
     swig.init({
         root: viewPath,
         cache: false,
