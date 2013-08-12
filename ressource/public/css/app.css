@@ -16,6 +16,12 @@ body {
   }
 }
 
+.breadcrumb {
+  border: 1px solid #ddd;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
+
 /*Navbar*/
 
 .mcp-navpill {
@@ -49,6 +55,7 @@ body {
   background: #fff;
   padding: 20px;
   margin-top: 20px;
+  margin-bottom: 20px;
   border-radius: 4px;
   border: 1px solid rgba(0,0,0,.2);
   box-shadow: 0 1px 1px rgba(0,0,0,.15);
@@ -62,6 +69,10 @@ body {
  * Dashboard
  */
 
-.panel .mcp-avatar {
-  padding: 3px;
+.mcp-avatarwrapper {
+  margin: 3px;
+  background: transparent url('../images/loader.gif') no-repeat center center;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
 }
