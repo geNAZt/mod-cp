@@ -3,10 +3,10 @@
         <div class="col-lg-6 col-offset-3">
             <div class="mcp-login-box">
                 <div class="alert alert-error" ng-show="user.invalid">
-                    <a class="close" data-dismiss="alert" href="#">×</a>{{ 'USER_OR_PASS_WRONG' | translate }}.
+                    <a class="close" data-dismiss="alert" href="#">×</a>{{ 'LOGIN__USER_OR_PASS_WRONG' | translate }}.
                 </div>
-                <legend>{{ 'LOGIN' | translate }}</legend>
-                <p class="help-block">{{ 'AUTHSYSTEM_INFO' | translate }}.</p>
+                <legend>{{ 'LOGIN__LOGIN' | translate }}</legend>
+                <p class="help-block">{{ 'LOGIN__AUTHSYSTEM_INFO' | translate }}.</p>
                 <ul class="nav nav-tabs mcp-tabs">
                   <li ng-repeat="provider in providers" class="{{selectedProvider==provider && 'active' || ''}}">
                     <a data-toggle="tab" ng-click="changeProvider(provider)">{{ provider }}</a>
@@ -17,17 +17,17 @@
                 <form>
                     <fieldset>
                         <div class="form-group {{user.error && 'has-error' || '' }}">
-                            <label for="login-name">{{ 'USERNAME' | translate }}</label>
-                            <input type="text" class="form-control" placeholder="{{ 'ENTER_YOUR_EMAIL' | translate }}" ng-click="reset()" ng-model="user.email" id="login-name">
+                            <label for="login-name">{{ 'LOGIN__USERNAME' | translate }}</label>
+                            <input type="text" class="form-control" placeholder="{{ 'LOGIN__ENTER_YOUR_EMAIL' | translate }}" ng-click="reset()" ng-model="user.email" id="login-name">
                         </div>
                         <div class="form-group {{user.error && 'has-error' || '' }}">
-                            <label for="login-pass">Password</label>
+                            <label for="login-pass">{{ 'LOGIN__PASSWORD' | translate }}</label>
                             <input type="password" class="form-control"
-                             placeholder="{{ 'ENTER_YOUR_PASS' | translate }}" ng-click="reset()" ng-model="user.password" id="login-pass">
-                            <p class="help-block" ng-show="lostPass"><a class="login-link" href="#/lostpass">{{ 'LOST_PASSWORD' | translate }}?</a></p>
+                             placeholder="{{ 'LOGIN__ENTER_YOUR_PASS' | translate }}" ng-click="reset()" ng-model="user.password" id="login-pass">
+                            <p class="help-block" ng-show="lostPass"><a class="login-link" href="#/lostpass">{{ 'LOGIN__LOST_PASSWORD' | translate }}?</a></p>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary" ng-click="login(user)">{{ 'LOGIN' | translate }}</button>
+                        <button type="submit" class="btn btn-primary" ng-click="login(user)">{{ 'LOGIN__LOGIN' | translate }}</button>
                     </fieldset>
                 </form>
             </div>
