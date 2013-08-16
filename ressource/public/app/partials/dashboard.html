@@ -114,6 +114,10 @@
 
             <div class="panel">
                 <h4>Dashboard</h4>
+                <div class="alert alert-danger" ng-repeat="server in servers" ng-show="server.playerCount == -1">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>{{ server.label }}</strong> appears to be offline.
+                </div>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="panel panel-primary">
