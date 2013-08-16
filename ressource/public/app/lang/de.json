@@ -6,7 +6,7 @@
     "LOGIN__ENTER_YOUR_PASS": "Bitte gib dein Passwort ein",
     "LOGIN__LOGIN": "Einloggen",
     "LOGIN__LOST_PASSWORD": "Passwort vergessen",
-    "LOGIN__USER_OR_PASS_WRONG": "E-Mail oder Passwort falsch"
+    "LOGIN__USER_OR_PASS_WRONG": "E-Mail oder Passwort falsch",
     "DASHBOARD__NAV__DASHBOARD": "Dashboard",
     "DASHBOARD__NAV__PILL__E-MAIL": "E-Mail",
     "DASHBOARD__NAV__PILL__LOGOUT": "Ausloggen",
@@ -21,3 +21,4 @@
     "DASHBOARD__PANEL__SERVER_STATUS__OFFLINE": "offline",
     "DASHBOARD__PANEL__ONLINE_PLAYERS": "Online Spieler"
 }
+

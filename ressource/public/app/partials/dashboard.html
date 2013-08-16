@@ -9,7 +9,7 @@
         <div class="nav-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="/#/dashboard">Dashboard</a>
+                    <a href="/#/dashboard">{{ 'DASHBOARD__NAV__DASHBOARD' | translate }}</a>
                 </li>
             </ul>            
         </div>
@@ -18,10 +18,10 @@
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><img src="https://minotar.net/avatar/{{ user.mcname }}/24" class="mcp-avatar"> {{ user.mcname }} <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li class="dropdown-header">E-Mail: {{ user.email }}</li>
+                    <li class="dropdown-header">{{ 'DASHBOARD__NAV__PILL__E-MAIL' | translate }}: {{ user.email }}</li>
                     <li class="dropdown-header">{{ user.joined_groups }}</li>
                     <li class="divider">
-                    <li><a tabindex="-1" href="/#/">Logout</a></li>                       
+                    <li><a tabindex="-1" href="/#/">{{ 'DASHBOARD__NAV__PILL__LOGOUT' | translate }}</a></li>                       
                 </ul>
             </li>
         </ul>
@@ -32,34 +32,22 @@
     <div class="row">
         <div class="col-lg-3">
             <div class="panel mcp-nav">
-                <div class="panel-heading">Navigation</div>
+                <div class="panel-heading">{{ 'DASHBOARD__NAVIGATION__NAVIGATION' | translate }}</div>
                 <ul class="nav">    
                     <li>
-                        <a href="#/server"><span class="famfamfam">Menu 1</span></a>
+                        <a href="#"><span class="famfamfam">{{ 'DASHBOARD__NAVIGATION__DUMMYMENU_ONE' | translate }}</span></a>
                         <ul class="nav">
-                            <li><a href="#">Menu 1.1</a></li>
-                            <li><a href="#">Menu 1.2</a></li>
+                            <li><a href="#">{{ 'DASHBOARD__NAVIGATION__DUMMYMENU_ONE_ONE' | translate }}</a></li>
+                            <li><a href="#">{{ 'DASHBOARD__NAVIGATION__DUMMYMENU_ONE_TWO' | translate }}</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#">Menu 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Menu 3</a>
-                    </li>
-                    <li>
-                        <a href="#">Menu 4</a>
-                    </li>
-                    <li>
-                        <a href="#">Menu 5</a>
-                    </li>
-                    <li>
-                        <a href="#">Menu 6</a>
+                        <a href="#">{{ 'DASHBOARD__NAVIGATION__DUMMYMENU_TWO' | translate }}</a>
                     </li>
                 </ul>
             </div>
             <div class="panel">
-              <div class="panel-heading">Online players</div>
+              <div class="panel-heading">{{ 'DASHBOARD__NAVIGATION__ONLINE_PLAYERS' | translate }}</div>
 
                 <div class="mcp-avatarwrapper">
                     <img src="https://minotar.net/avatar/{{ user.mcname }}/24">
@@ -109,22 +97,22 @@
         <div class="col-lg-9">
             <ul class="breadcrumb">
               <li><a href="#">ModCP</a></li>
-              <li class="active">Dashboard</li>
+              <li class="active">{{ 'DASHBOARD__NAV__DASHBOARD' | translate }}</li>
             </ul>
 
             <div class="panel">
-                <h4>Dashboard</h4>
+                <h4>{{ 'DASHBOARD__NAV__DASHBOARD' | translate }}</h4>
                 <div class="alert alert-danger" ng-repeat="server in servers" ng-show="server.playerCount == -1">
                     <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>{{ server.label }}</strong> appears to be offline.
+                    <strong>{{ server.label }}</strong> {{ 'DASHBOARD__NOTIFICATION__OFFLINE_SERVER' | translate }}.
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Server Status</h3>
+                                <h3 class="panel-title">{{ 'DASHBOARD__PANEL__SERVER_STATUS' | translate }}</h3>
                             </div>
-                            <div class="btn {{ server.playerCount != -1 && 'btn-success' || 'btn-danger' }} btn-small mcp-serverstatuspill" ng-repeat="server in servers">{{ server.label }} <span class="badge">{{ server.playerCount != -1 && '' + server.playerCount + '' || 'offline' }}</span></div>
+                            <div class="btn {{ server.playerCount != -1 && 'btn-success' || 'btn-danger' }} btn-small mcp-serverstatuspill" ng-repeat="server in servers">{{ server.label }} <span class="badge">{{ server.playerCount != -1 && '' + server.playerCount + '' || 'DASHBOARD__PANEL__SERVER_STATUS__OFFLINE' | translate }}</span></div>
                         </div>
                     </div>
 
@@ -141,7 +129,7 @@
                     <div class="col-lg-12">
                         <div class="panel panel-info">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Online players</h3>
+                                <h3 class="panel-title">{{ 'DASHBOARD__PANEL__ONLINE_PLAYERS' | translate }}</h3>
                             </div>
                             <div id="playerOnlineCount" style="height: 350px;"></div>
                         </div>
