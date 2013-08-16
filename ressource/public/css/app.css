@@ -76,3 +76,7 @@ body {
   width: 24px;
   height: 24px;
 }
+
+.mcp-serverstatuspill {
+  margin: 5px;
+}

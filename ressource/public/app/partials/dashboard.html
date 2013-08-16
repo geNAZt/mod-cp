@@ -115,30 +115,40 @@
             <div class="panel">
               
                 <h4>Dashboard</h4>
-
-                <div class="span8">
-                    <div class="user-container">
-                        <h6>Server Status</h6>
-                        <div id="serverOnline">
-                            <div class="btn {{ server.playerCount != -1 && 'btn-success' || 'btn-danger' }}" ng-repeat="server in servers">{{ server.label }}{{ server.playerCount != -1 && ': ' + server.playerCount || '' }}</div>
+                
+                <div class="row show-grid">
+                    <div class="col-lg-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Server Status</h3>
+                            </div>
+                            <div class="btn {{ server.playerCount != -1 && 'btn-success' || 'btn-danger' }} btn-small mcp-serverstatuspill" ng-repeat="server in servers">{{ server.label }} <span class="badge">{{ server.playerCount != -1 && '' + server.playerCount + '' || 'offline' }}</span></div>
                         </div>
                     </div>
 
-                    <div class="user-container">
-                        <h6>Player Online Chart</h6>
-                        <div id="playerOnlineCount" style="height: 350px;">
-
+                    <div class="col-lg-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Another widget</h3>
+                            </div>
+                            With some cool things inside
                         </div>
                     </div>
                 </div>
-                  <script>
-                  $(document).ready(function(){
-                    // tooltip demo
-                    $('.tooltip-demo').tooltip({
-                      selector: "[data-toggle=tooltip]"
-                    })
-                  });
-                  </script>
+                <div class="user-container">
+                    <h6>Player Online Chart</h6>
+                    <div id="playerOnlineCount" style="height: 350px;">
+
+                    </div>
+                </div>
+                <script>
+                $(document).ready(function(){
+                  // tooltip demo
+                  $('.tooltip-demo').tooltip({
+                    selector: "[data-toggle=tooltip]"
+                  })
+                });
+                </script>
                <div class="bs-example tooltip-demo">
                 <div class="bs-example-tooltips">
                   <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="" data-original-title="Tooltip on left">Tooltip on left</button>
